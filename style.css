@@ -387,7 +387,7 @@ textarea {
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-    height: auto;
+    display: none;
 }
 
 
@@ -669,10 +669,6 @@ textarea {
     left: 100%;
 }
 
-.main-navigation ul ul a {
-    width: 200px;
-}
-
 .main-navigation ul li:hover>ul,
 .main-navigation ul li.focus>ul {
     left: auto;
@@ -682,11 +678,33 @@ textarea {
     float: none;
     display: inline-block;
     position: relative;
+    margin: 0 56px;
+}
+
+.main-navigation li:first-child {
+    margin-left: 0;
+}
+
+.main-navigation li:last-child {
+    margin-right: 0;
 }
 
 .main-navigation a {
+    display: flex;
+    align-items: center;
+    height: 122px;
+    color: var(--white-color);
     transition: .3s;
     position: relative;
+    text-transform: uppercase;
+    font-family: var(--title-font);
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
+
+.main-navigation li:hover>a {
+    color: var(--primary-color);
 }
 
 @media screen and (min-width: 992px) {
@@ -1117,12 +1135,14 @@ select::-ms-expand {
 .select2-container--default .select2-selection--single .select2-selection__rendered,
 select {
     width: 100%;
-    height: 46px;
-    border: none;
+    height: 55px;
+    border: 1px solid #707070;
     outline: none !important;
-    padding: 0 15px;
-    font-size: 16px;
-    line-height: 26px;
+    padding: 0 40px;
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 21px;
     color: var(--dark-color);
     background: var(--white-color);
     -webkit-appearance: none;
@@ -1138,9 +1158,9 @@ select.form-input {
 }
 
 .form-input.wpcf7-textarea {
-    height: 120px;
+    height: 149px;
     resize: none;
-    padding: 15px;
+    padding: 15px 40px;
     display: block;
 }
 
@@ -1341,7 +1361,11 @@ body {
 p {
     font-size: 16px;
     line-height: 32px;
-    margin-bottom: 16px;
+    margin-bottom: 33px;
+}
+
+p:last-child {
+    margin-bottom: 0;
 }
 
 h1,
@@ -1382,14 +1406,14 @@ a:hover {
     line-height: 47px;
     color: var(--primary-color);
     text-transform: capitalize;
-    margin-bottom: 17px;
+    margin-bottom: 23px;
 }
 
 .h3-title {
     font-size: 30px;
     line-height: 36px;
     color: var(--dark-color);
-    margin-bottom: 17px;
+    margin-bottom: 16px;
 }
 
 .grecaptcha-badge {
@@ -1443,6 +1467,12 @@ a:hover {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.sec-1920 {
+    width: 1920px;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .play-btn {
@@ -1502,18 +1532,19 @@ a:hover {
 .main-navigation ul li.menu-item-has-children>a:after {
     content: "\f078";
     position: absolute;
-    top: 55%;
+    top: 50%;
     right: 0;
     transform: translate(0, -50%);
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 26px;
-    color: var(--dark-color);
+    color: var(--white-color);
     transition: .3s;
 }
 
 .main-navigation ul li.menu-item-has-children:hover>a:after {
+    color: var(--primary-color);
     transform: translate(0, -50%) rotate(-180deg);
 }
 
@@ -1522,7 +1553,7 @@ a:hover {
     top: 100%;
     left: 0 !important;
     float: none;
-    width: 200px;
+    width: 350px;
     background: var(--white-color);
     box-shadow: 0 0 10px rgb(60 140 244 / 15%);
     text-align: left;
@@ -1560,14 +1591,16 @@ a:hover {
 
 .main-navigation ul ul li a {
     display: block;
+    color: var(--dark-color);
     padding: 5px 10px;
     font-size: 16px;
     line-height: 26px;
+    height: auto;
     transition: 0.3s;
 }
 
 .main-navigation ul ul li a:hover {
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .sec-btn,
@@ -1584,10 +1617,12 @@ a:hover {
     align-items: center;
     border-radius: 10px;
     -webkit-appearance: none;
+    font-family: var(--title-font);
     font-size: 16px;
     line-height: 20px;
+    text-transform: uppercase;
     color: var(--white-color);
-    font-weight: 500;
+    font-weight: bold;
     text-align: center;
     padding: 5px;
     cursor: pointer;
@@ -2003,8 +2038,276 @@ button.close:hover {
 
 /*==========Header CSS Start==========*/
 
+.site-header {
+    position: absolute;
+    width: 100%;
+    top: 114px;
+    left: 0;
+    z-index: 100;
+    transition: .3s;
+}
+
+.site-branding {
+    display: none;
+}
+
+.main-navigation li.site-logo {
+    margin-right: 43px;
+}
+
+.main-navigation li.site-logo a {
+    min-width: 362px;
+    color: transparent;
+}
+
+.main-navigation li.site-logo a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('http://192.168.29.3/dillon-construction/wp-content/uploads/2022/07/logo.svg');
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 
 /*==========Header CSS End==========*/
+
+
+/*==========Banner CSS Start ==========*/
+
+.main-banner {
+    position: relative;
+    padding: 392px 0 303px;
+    background: var(--black-color);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+    z-index: 6;
+}
+
+.main-banner::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--black-color);
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+}
+
+.banner-content .h1-title {
+    font-size: 158px;
+    line-height: 189px;
+    margin-bottom: 32px;
+}
+
+.banner-btn .sec-btn+.sec-btn {
+    margin: 0 0 0 27px;
+}
+
+
+/*==========Banner CSS End ==========*/
+
+
+/*==========About Us CSS Saart ==========*/
+
+.about-sec {
+    position: relative;
+    background-color: #145201;
+    margin-top: -150px;
+}
+
+.d-img {
+    position: absolute;
+    top: -32px;
+    left: -156px;
+    opacity: 0.1;
+}
+
+.about-img-wp {
+    position: relative;
+    width: calc(100% + 385px);
+    height: 100%;
+    left: -15px;
+}
+
+.about-img {
+    width: 100%;
+    height: 100%;
+    background-position: left;
+}
+
+.about-content {
+    padding: 204px 35px 193px 0;
+}
+
+
+/*==========About Us CSS End ==========*/
+
+
+/*==========Services CSS Start ==========*/
+
+.service-sec {
+    position: relative;
+    background-color: var(--white-color);
+    padding: 155px 0 222px;
+    margin-top: -150px;
+    -webkit-clip-path: polygon(50% 0, 100% 150px, 100% 1900px, 50% 100%, 0 1900px, 0 150px);
+    clip-path: polygon(50% 0, 100% 150px, 100% 1900px, 50% 100%, 0 1900px, 0 150px);
+    z-index: 6;
+}
+
+.service-sec .h2-title {
+    margin-bottom: 62px;
+}
+
+.service-link {
+    margin-bottom: 70px;
+}
+
+.service-link li {
+    display: inline-block;
+    margin: 0 13px;
+}
+
+.service-link li:first-child {
+    margin-left: 0;
+}
+
+.service-link li:last-child {
+    margin-right: 0;
+}
+
+.service-link li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    font-family: var(--title-font);
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #145201;
+    letter-spacing: 0.2px;
+    border: 1px solid #5A9739;
+    border-radius: 10px;
+    padding: 0 53px;
+    transition: .3s;
+}
+
+.service-link li a:hover {
+    background: #5A9739;
+    color: var(--white-color);
+}
+
+.service-list-wp .service-list {
+    margin-bottom: 100px;
+}
+
+.service-list-wp .service-list:last-child {
+    margin-bottom: 0;
+}
+
+.service-img-wp {
+    width: calc(100% + 15px);
+    height: 419px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.service-img {
+    width: 100%;
+    height: 100%;
+}
+
+.service-content p {
+    height: 155px;
+    margin-bottom: 43px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.service-content .sec-btn {
+    width: 192px;
+}
+
+.service-content .sec-btn:hover {
+    background: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.service-content {
+    padding: 0 0 0 68px;
+}
+
+.service-list.even .service-content {
+    padding: 0;
+}
+
+
+/*==========Services CSS End ==========*/
+
+
+/*==========Review CSS Start ==========*/
+
+.review-sec {
+    position: relative;
+    margin-top: -250px;
+    padding: 367px 0 100px;
+    background-color: rgba(162, 162, 162, 0.1);
+}
+
+.review-sec .h2-title {
+    margin-bottom: 90px;
+}
+
+.review-box ul {
+    margin-bottom: 37px;
+}
+
+.review-box li {
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.review-box li:first-child {
+    margin-left: 0;
+}
+
+.review-box li:last-child {
+    margin-right: 0;
+}
+
+.review-text.overflow-text {
+    height: 220px;
+    margin-bottom: 12px;
+}
+
+.review-box h4 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.review-slider .slick-list {
+    overflow: visible;
+    text-align: center;
+}
+
+.review-slider-box {
+    padding: 0 140px;
+}
+
+
+/*==========Review CSS End ==========*/
 
 
 /*==========Scroll To Top CSS Start==========*/

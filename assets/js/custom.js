@@ -49,9 +49,10 @@ jQuery(document).ready(function($) {
 
 
 
-    jQuery('.plans-slider').slick({
+    jQuery('.gallery-slider').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
+        rows: 0,
         infinite: true,
         dots: true,
         arrows: true,
@@ -80,13 +81,15 @@ jQuery(document).ready(function($) {
         ]
     });
     jQuery('.review-slider').slick({
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
         infinite: true,
         dots: false,
         arrows: true,
         autoplay: true,
+        centerMode: true,
         autoplaySpeed: 2000,
+        rows: 0,
         prevArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
         nextArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
         responsive: [{
