@@ -689,10 +689,14 @@ textarea {
     margin-right: 0;
 }
 
+.home .main-navigation a {
+    height: 122px;
+}
+
 .main-navigation a {
     display: flex;
     align-items: center;
-    height: 122px;
+    height: 72px;
     color: var(--white-color);
     transition: .3s;
     position: relative;
@@ -703,6 +707,10 @@ textarea {
     letter-spacing: 0.4px;
 }
 
+.main-navigation ul li.current_page_item>a,
+.main-navigation ul li.menu-item-has-children .current_page_item a,
+.main-navigation ul li.current-menu-parent.menu-item-has-children>a:after,
+.main-navigation ul li.current-menu-parent>a,
 .main-navigation li:hover>a {
     color: var(--primary-color);
 }
@@ -1049,11 +1057,12 @@ span.wpcf7-not-valid-tip {
     color: var(--red-color);
     margin-bottom: -24px;
     text-align: left;
+    top: -2px;
 }
 
 .wpcf7-form-control-wrap {
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     position: relative;
 }
 
@@ -1085,36 +1094,35 @@ input[type=text],
 input[type=email],
 input[type=number] {
     -webkit-appearance: none;
-    border-radius: 0;
 }
 
 .form-input::-webkit-input-placeholder,
 .input-text::-webkit-input-placeholder {
-    color: var(--input-color);
+    color: var(--dark-color);
     opacity: 1;
 }
 
 .form-input::-moz-placeholder,
 .input-text::-moz-placeholder {
-    color: var(--input-color);
+    color: var(--dark-color);
     opacity: 1;
 }
 
 .form-input:-ms-input-placeholder,
 .input-text:-ms-input-placeholder {
-    color: var(--input-color);
+    color: var(--dark-color);
     opacity: 1;
 }
 
 .form-input::-ms-input-placeholder,
 .input-text::-ms-input-placeholder {
-    color: var(--input-color);
+    color: var(--dark-color);
     opacity: 1;
 }
 
 .form-input::placeholder,
 .input-text::placeholder {
-    color: var(--input-color);
+    color: var(--dark-color);
     opacity: 1;
 }
 
@@ -1170,12 +1178,18 @@ select.form-input {
     display: inline-block;
 }
 
+.submit-btn .sec-btn:hover {
+    color: var(--primary-color);
+    background: transparent;
+    border-color: var(--primary-color);
+}
+
 .wpcf7 .wpcf7-spinner {
     position: absolute;
     top: 50%;
-    left: 100%;
+    left: 50%;
     transform: translate(0, -50%);
-    margin: 0;
+    margin: 0 0 0 25px;
 }
 
 .wpcf7 input[type=checkbox],
@@ -1595,7 +1609,7 @@ a:hover {
     padding: 5px 10px;
     font-size: 16px;
     line-height: 26px;
-    height: auto;
+    height: auto !important;
     transition: 0.3s;
 }
 
@@ -1813,15 +1827,17 @@ button.close:hover {
 
 .slick-arrow {
     position: absolute;
-    bottom: 0;
+    top: 50%;
     left: 0;
-    width: 30px;
-    height: 30px;
+    transform: translate(0, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     padding: 0;
     border: none !important;
-    background: var(--primary-color);
+    background: var(--white-color);
     outline: none !important;
-    color: var(--white-color);
+    color: var(--primary-color);
     font-weight: bold;
     font-size: 20px;
     transition: 0.3s;
@@ -1829,14 +1845,44 @@ button.close:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.11);
 }
 
-.slide-arrow.next-arrow.slick-arrow {
-    left: 60px;
+.slick-arrow::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    border: 3px solid var(--primary-color);
+    transition: .3s;
+}
+
+.slick-arrow.prev-arrow::before {
+    transform: translate(-30%, -50%) rotate(45deg);
+    border-top: 0;
+    border-right: 0;
+}
+
+.slick-arrow.next-arrow::before {
+    border-color: var(--primary-color);
+    transform: translate(-70%, -50%) rotate(45deg);
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.next-arrow.slick-arrow {
+    left: auto;
+    right: 0;
 }
 
 .slick-arrow:hover {
-    background: var(--dark-color);
+    background: var(--primary-color);
+}
+
+.slick-arrow:hover::before {
+    border-color: var(--white-color);
 }
 
 .slick-dots li:only-child {
@@ -2039,25 +2085,56 @@ button.close:hover {
 /*==========Header CSS Start==========*/
 
 .site-header {
-    position: absolute;
+    position: fixed;
     width: 100%;
-    top: 114px;
+    top: 100px;
     left: 0;
-    z-index: 100;
+    z-index: 101;
     transition: .3s;
+}
+
+.home .site-header {
+    top: 114px;
 }
 
 .site-branding {
     display: none;
 }
 
+.site-header.sticky_head {
+    background: var(--black-color);
+    top: 0;
+}
+
+.home .sticky_head .main-navigation li.site-logo a {
+    min-width: 290px;
+    transition: .3s;
+}
+
+.home .main-navigation li.site-logo {
+    margin: 0 43px 0 56px;
+    transition: .3s;
+}
+
 .main-navigation li.site-logo {
-    margin-right: 43px;
+    margin: 0 117px 0 129px;
+    transition: .3s;
 }
 
 .main-navigation li.site-logo a {
-    min-width: 362px;
+    min-width: 216px;
     color: transparent;
+    transition: .3s;
+}
+
+.sticky_head .main-navigation li.site-logo a {
+    min-width: 174px;
+    transition: .3s;
+}
+
+.home .main-navigation li.site-logo a {
+    min-width: 362px;
+    transition: .3s;
 }
 
 .main-navigation li.site-logo a::before {
@@ -2068,10 +2145,11 @@ button.close:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url('http://192.168.29.3/dillon-construction/wp-content/uploads/2022/07/logo.svg');
+    background-image: url('http://192.168.29.2/dillon-construction/wp-content/uploads/2022/07/logo.svg');
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
+    transition: .3s;
 }
 
 
@@ -2127,6 +2205,7 @@ button.close:hover {
     top: -32px;
     left: -156px;
     opacity: 0.1;
+    pointer-events: none;
 }
 
 .about-img-wp {
@@ -2262,16 +2341,20 @@ button.close:hover {
 .review-sec {
     position: relative;
     margin-top: -250px;
-    padding: 367px 0 100px;
+    z-index: 1;
+}
+
+.review-wp {
+    padding: 367px 0 0;
     background-color: rgba(162, 162, 162, 0.1);
 }
 
 .review-sec .h2-title {
-    margin-bottom: 90px;
+    margin-bottom: 92px;
 }
 
 .review-box ul {
-    margin-bottom: 37px;
+    margin-bottom: 32px;
 }
 
 .review-box li {
@@ -2303,11 +2386,298 @@ button.close:hover {
 }
 
 .review-slider-box {
-    padding: 0 140px;
+    padding: 0 238px;
+}
+
+.review-slider [data-simplebar=init] {
+    height: 190px;
+    margin-bottom: 42px;
+}
+
+.gallery-sec {
+    padding: 151px 0 87px;
+}
+
+.gallery-img {
+    height: 444px;
+}
+
+.gallery-slider .slick-list {
+    width: calc(100% + 180px);
+    left: -91px;
+}
+
+.gallery-slider .prev-arrow {
+    left: -175px;
+}
+
+.gallery-slider .next-arrow.slick-arrow {
+    right: -175px;
+}
+
+.review-bottom {
+    position: relative;
+    background: #F6F6F6;
+    text-align: center;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 17%, 50% 100%, 0 17%);
+    clip-path: polygon(0 0, 100% 0, 100% 17%, 50% 100%, 0 17%);
+    padding: 0 0 170px;
 }
 
 
 /*==========Review CSS End ==========*/
+
+
+/*==========Hiring CSS Start ==========*/
+
+.hiring-sec {
+    position: relative;
+    margin: -150px 0 0;
+    padding: 302px 0 300px;
+    background-position: top center;
+}
+
+.hiring-sec::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-color);
+    top: 0;
+    left: 0;
+    opacity: 0.86;
+}
+
+.hiring-sec .user-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 123px;
+    height: 123px;
+    border-radius: 50%;
+    background: var(--dark-color);
+    position: absolute;
+    left: 50%;
+    top: 96px;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.hiring-content {
+    padding: 0 80px;
+}
+
+.hiring-content .h1-title {
+    margin-bottom: 14px;
+}
+
+.hiring-content p {
+    margin-bottom: 42px;
+}
+
+
+/*==========Hiring CSS End ==========*/
+
+
+/*==========Footer CSS Start ==========*/
+
+.site-footer {
+    position: relative;
+    margin: -195px 0 0;
+    padding-bottom: 65px;
+    background: var(--dark-color);
+    clip-path: polygon(50% 0, 100% 150px, 100% 100%, 50% 100%, 0 100%, 0 150px);
+}
+
+.top-footer-box {
+    position: relative;
+    padding: 76px 0 0;
+}
+
+.footer-logo {
+    margin-bottom: 50px;
+}
+
+.footer-text {
+    margin-bottom: 47px;
+}
+
+.footer-text p {
+    font-size: 15px;
+    width: 686px;
+    max-width: 100%;
+    margin: 0 auto 0;
+}
+
+.contact-link {
+    margin-bottom: 75px;
+}
+
+.contact-link li {
+    display: inline-block;
+    margin: 0 49px;
+}
+
+.contact-link li:first-child {
+    margin-left: 0;
+}
+
+.contact-link li:last-child {
+    margin-right: 0;
+}
+
+.contact-link li a {
+    display: flex;
+    align-items: center;
+}
+
+.contact-link li a .icon {
+    margin-right: 20px;
+}
+
+.contact-link li a .text {
+    font-size: 15px;
+    color: var(--white-color);
+    transition: .3s;
+}
+
+.contact-link li a:hover .text {
+    color: var(--primary-color);
+}
+
+.contact-link li a.fb i {
+    font-size: 20px;
+    color: var(--primary-color);
+    transition: .3s;
+}
+
+.contact-link li a.fb:hover i {
+    color: var(--white-color);
+}
+
+.instagram-title {
+    position: relative;
+    padding: 34px 0 45px;
+}
+
+.instagram-title::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 2px;
+    background: var(--common-color);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.instagram-title h3 {
+    font-size: 24px;
+    line-height: 29px;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+.instagram-title h3 .light {
+    display: block;
+    color: var(--common-color);
+}
+
+#sb_instagram #sbi_load,
+#sb_instagram .sb_instagram_header,
+.sb_instagram_header {
+    display: none;
+}
+
+.instagram-slider .slick-slide {
+    margin: 0 15px;
+}
+
+.instagram-slider #sb_instagram .sbi_photo {
+    height: 232px !important;
+    border-radius: 10px;
+}
+
+.instagram-slider .slick-list {
+    overflow: visible;
+    width: calc(100% + 40px);
+    left: -22px;
+}
+
+.instagram-slider {
+    margin-bottom: -15px;
+}
+
+.footer-bottom-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 49px;
+}
+
+.copy-right {
+    display: flex;
+    align-items: center;
+}
+
+.footer-other-link p a,
+.footer-other-link p,
+.copy-right p,
+.footer-bottom-link li a {
+    font-size: 14px;
+    color: #A2A2A2;
+    line-height: 27px;
+}
+
+.footer-other-link p a:hover,
+.footer-bottom-link li a:hover {
+    text-decoration: underline !important;
+}
+
+.copy-right p {
+    margin-bottom: 0;
+}
+
+.footer-bottom-link ul {
+    font-size: 0;
+    line-height: 0;
+}
+
+.footer-bottom-link li {
+    display: inline-block;
+}
+
+.footer-bottom-link li a {
+    border-left: 1px solid #A2A2A2;
+    margin-left: 7px;
+    padding-left: 7px;
+}
+
+.footer-other-link p a {
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+.career-form .submit-btn {
+    text-align: center;
+}
+
+.career-sec {
+    position: relative;
+    padding: 72px 0 276px;
+}
+
+.career-content p {
+    color: var(--dark-color);
+    margin-bottom: 24px;
+}
+
+.career-form .wpcf7 .wpcf7-spinner {
+    margin: 0 0 0 165px;
+}
+
+
+/*==========Footer CSS End ==========*/
 
 
 /*==========Scroll To Top CSS Start==========*/
@@ -2342,7 +2712,7 @@ button.close:hover {
 /*==========Scroll To Top CSS End==========*/
 
 
-/*========== Inner Page CSS end ==========*/
+/*========== Inner Page CSS Start ==========*/
 
 .main-banner.inner-banner {
     padding: 280px 0 160px 0;
@@ -2354,7 +2724,7 @@ button.close:hover {
 }
 
 .inner-page-text {
-    padding: 80px 0;
+    padding: 80px 0 255px;
 }
 
 .privacy-content h2,
@@ -2404,8 +2774,196 @@ button.close:hover {
     list-style: disc;
 }
 
+.inner-banner {
+    position: relative;
+    padding: 276px 0 110px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 72%, 50% 100%, 0 72%);
+    clip-path: polygon(0 0, 100% 0, 100% 72%, 50% 100%, 0 72%);
+    z-index: 6;
+}
 
-/*========== Inner page CSS end ==========*/
+.inner-banner::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--black-color);
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+}
+
+.inner-banner-content h4 {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 25px;
+    letter-spacing: 0.1px;
+    margin-bottom: 16px;
+}
+
+.service-details-sec {
+    position: relative;
+    background-color: #1A1A1A;
+    margin-top: -160px;
+}
+
+.main-details {
+    position: relative;
+    background: var(--common-color);
+    z-index: 1;
+}
+
+.main-details .container {
+    z-index: unset;
+}
+
+.main-details::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 763px;
+    left: 0;
+    bottom: 0;
+    background: -moz-linear-gradient(top, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 1) 100%);
+    background: -o-linear-gradient(top, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 1) 100%);
+    background: linear-gradient(to bottom, rgba(26, 26, 26, 0) 0%, rgba(26, 26, 26, 1) 100%);
+    z-index: 6;
+}
+
+.service-detail-img-wp {
+    width: calc(100% + 400px);
+    height: 100%;
+    position: relative;
+    left: -15px;
+}
+
+.service-detail-img {
+    width: 100%;
+    height: 100%;
+}
+
+.service-detail-content {
+    padding: 227px 60px 473px 0;
+    position: relative;
+    z-index: 7;
+}
+
+.main-details .d-img {
+    top: 125px;
+    opacity: 0.03;
+}
+
+.service-box-wp {
+    background: var(--white-color);
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    padding: 74px 43px 72px;
+}
+
+.service-box-wp::before {
+    content: "";
+    position: absolute;
+    width: 151px;
+    height: 7px;
+    background: #145201;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.service-box-wp .h3-title {
+    color: var(--primary-color);
+    margin-bottom: 36px;
+}
+
+.service-box-wp .h3-title span {
+    display: block;
+}
+
+.service-box-btn {
+    margin-top: 54px;
+}
+
+.service-box {
+    position: relative;
+    margin: -350px 0 0;
+    z-index: 1;
+}
+
+.service-box .container-fluid {
+    padding: 0 165px;
+}
+
+.service-details-sec .gallery-sec {
+    padding: 122px 0 299px;
+}
+
+.service-details-sec .gallery-img {
+    height: 384px;
+}
+
+.service-details-sec .gallery-slider .slick-list {
+    width: 100%;
+    left: 0;
+}
+
+.service-details-sec .gallery-slider .prev-arrow {
+    left: -13px;
+}
+
+.service-details-sec .gallery-slider .next-arrow {
+    right: -13px;
+}
+
+.contact-banner {
+    background-position: top center;
+    padding: 292px 0 110px;
+}
+
+.contact-contet .contact-link li {
+    display: block;
+    margin: 0 0 11px;
+}
+
+.contact-contet .contact-link li:last-child {
+    margin: 22px 0 0;
+}
+
+.contact-contet .contact-link li a .text {
+    color: var(--dark-color);
+}
+
+.contact-contet .contact-link li a:hover .text {
+    color: var(--primary-color);
+}
+
+.contact-contet .contact-link li a.fb:hover i {
+    color: var(--dark-color);
+}
+
+.contact-contet .h2-title {
+    color: var(--dark-color);
+    margin-bottom: 14px;
+}
+
+.contact-contet p {
+    color: var(--dark-color);
+    margin-bottom: 41px;
+    width: 446px;
+    max-width: 100%;
+}
+
+.contact-sec {
+    position: relative;
+    padding: 81px 0 276px;
+}
+
+
+/*========== Inner page CSS End ==========*/
 
 
 /*========== Thank You Page CSS Start ==========*/
@@ -2457,6 +3015,7 @@ button.close:hover {
 
 .error-404 {
     text-align: center;
+    padding: 73px 0 275px;
 }
 
 .error-404 img {
@@ -2975,9 +3534,18 @@ a.prev.page-numbers {
     }
 }
 
-@media (min-width: 2100px) {
+@media (min-width: 1921px) {
     .container {
         max-width: 1400px;
+    }
+}
+
+@media screen and (max-width: 1599px) {
+    .gallery-slider .prev-arrow {
+        left: -125px;
+    }
+    .gallery-slider .next-arrow.slick-arrow {
+        right: -125px;
     }
 }
 

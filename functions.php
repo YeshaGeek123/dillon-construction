@@ -222,6 +222,16 @@ function custom_reviews_post() {
 }
 add_action( 'init', 'custom_reviews_post' );
 
+function global_variable_dillon_construction()
+{
+	global $phone,$phone_link;
+	$phone = get_field('phone_number','options');
+	$val = array("-");
+    $replace = array("");
+	$phone_link = str_replace($val, $replace, $phone); 
+}
+add_action( 'init', 'global_variable_dillon_construction' );
+
 // Filter the output of logo to fix Googles Error about itemprop logo
 add_filter( 'get_custom_logo', 'change_html_custom_logo' );
 function change_html_custom_logo() {

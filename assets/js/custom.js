@@ -54,12 +54,13 @@ jQuery(document).ready(function($) {
         slidesToScroll: 1,
         rows: 0,
         infinite: true,
-        dots: true,
+        dots: false,
         arrows: true,
         autoplay: true,
         autoplaySpeed: 2000,
-        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-        nextArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
+        swipeToSlide: true,
+        prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+        nextArrow: '<button class="slide-arrow next-arrow"></button>',
         responsive: [{
                 breakpoint: 992,
                 settings: {
@@ -88,10 +89,11 @@ jQuery(document).ready(function($) {
         arrows: true,
         autoplay: true,
         centerMode: true,
+        swipeToSlide: true,
         autoplaySpeed: 2000,
         rows: 0,
-        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-        nextArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
+        prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+        nextArrow: '<button class="slide-arrow next-arrow"></button>',
         responsive: [{
             breakpoint: 992,
             settings: {
@@ -104,16 +106,18 @@ jQuery(document).ready(function($) {
             }
         }]
     });
-    jQuery('.team-slider').slick({
-        slidesToShow: 3,
+    jQuery('.instagram-slider1').slick({
+        slidesToShow: 4,
         slidesToScroll: 1,
         infinite: true,
         dots: false,
-        arrows: true,
+        arrows: false,
         autoplay: true,
         autoplaySpeed: 2000,
-        prevArrow: '<button class="slide-arrow prev-arrow"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-        nextArrow: '<button class="slide-arrow next-arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
+        swipeToSlide: true,
+        rows: 0,
+        prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+        nextArrow: '<button class="slide-arrow next-arrow"></i></button>',
         responsive: [{
                 breakpoint: 992,
                 settings: {
@@ -146,7 +150,7 @@ jQuery(document).ready(function($) {
             rows: 1,
             swipeToSlide: true,
             dots: false,
-            arrows: true,
+            arrows: false,
             autoplay: true,
             autoplaySpeed: 2000,
             infinite: true,
@@ -197,12 +201,12 @@ jQuery(document).ready(function($) {
     });
 
     /*Quote Modal JS */
-    jQuery("#quoteModal").on('show.bs.modal', function() {
+    jQuery("#get_an_quote_modal").on('show.bs.modal', function() {
         var scrolly = window.scrollY;
         jQuery("body").css("top", "-" + scrolly + "px");
         jQuery(this).attr("data-top", scrolly);
     });
-    jQuery('#quoteModal').on('hidden.bs.modal', function() {
+    jQuery('#get_an_quote_modal').on('hidden.bs.modal', function() {
         var scrolly = jQuery(this).attr("data-top");
         jQuery("body").css("top", "0px");
         window.scrollTo(0, scrolly);
