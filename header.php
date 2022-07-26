@@ -33,7 +33,7 @@
 		<header id="masthead" class="site-header">
 			<div class="container">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-lg-12">
 						<div class="site-branding">
 							<?php
 							the_custom_logo();
@@ -41,13 +41,13 @@
 						</div><!-- .site-branding -->
 					</div>
 					<div class="col-12">
-						<div class="header-menu">
-							<nav id="site-navigation" class="main-navigation">
-								<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-									<span></span>
-									<span></span>
-									<span></span>
-								</button>
+						<nav id="site-navigation" class="main-navigation">
+							<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+							<div class="header-menu">
 								<?php
 								wp_nav_menu(
 									array(
@@ -56,8 +56,8 @@
 									)
 								);
 								?>
-							</nav><!-- #site-navigation -->
-						</div>
+							</div>
+						</nav><!-- #site-navigation -->
 					</div>
 				</div>
 			</div>

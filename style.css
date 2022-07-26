@@ -641,7 +641,8 @@ textarea {
     clear: both;
     display: inline-block;
     float: none;
-    width: auto;
+    width: 100%;
+    text-align: center;
 }
 
 .main-navigation ul {
@@ -707,7 +708,9 @@ textarea {
     letter-spacing: 0.4px;
 }
 
-.main-navigation ul li.current_page_item>a,
+.page-template-template-contact-php .main-navigation ul li.menu-item-18 a,
+.page-template-template-career-php .main-navigation ul li.menu-item-23 a,
+.home .main-navigation ul li.menu-item-16>a,
 .main-navigation ul li.menu-item-has-children .current_page_item a,
 .main-navigation ul li.current-menu-parent.menu-item-has-children>a:after,
 .main-navigation ul li.current-menu-parent>a,
@@ -1175,7 +1178,7 @@ select.form-input {
 .submit-btn {
     text-align: left;
     position: relative;
-    display: inline-block;
+    display: block;
 }
 
 .submit-btn .sec-btn:hover {
@@ -1706,15 +1709,17 @@ a:hover {
     box-shadow: 0 20px 30px rgb(60 140 244 / 16%);
 }
 
+.estimate-popup .wpcf7 .wpcf7-spinner {
+    margin: 0;
+}
+
 .popup-title {
     position: relative;
     padding: 10px 65px 10px 30px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.popup-title .h2-title {
-    font-size: 30px;
-    line-height: 40px;
+.popup-title .h3-title {
     margin-bottom: 0;
 }
 
@@ -1730,13 +1735,19 @@ button.close {
     color: var(--white-color);
     border-radius: 0;
     outline: none !important;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 2;
     transition: 0.3s;
 }
 
 button.close:hover {
-    background: var(--secondary-color);
-    color: var(--dark-color);
+    background: var(--dark-color);
+    color: var(--white-color);
 }
 
 .modal-dialog {
@@ -2161,7 +2172,7 @@ button.close:hover {
 .main-banner {
     position: relative;
     padding: 392px 0 303px;
-    background: var(--black-color);
+    background-position: top center;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
     z-index: 6;
@@ -2210,7 +2221,7 @@ button.close:hover {
 
 .about-img-wp {
     position: relative;
-    width: calc(100% + 385px);
+    width: calc(100% + 390px);
     height: 100%;
     left: -15px;
 }
@@ -2242,7 +2253,7 @@ button.close:hover {
 }
 
 .service-sec .h2-title {
-    margin-bottom: 62px;
+    margin-bottom: 51px;
 }
 
 .service-link {
@@ -2571,11 +2582,23 @@ button.close:hover {
     transform: translate(-50%, 0);
 }
 
+.instagram-title h3 a,
 .instagram-title h3 {
     font-size: 24px;
     line-height: 29px;
     color: var(--primary-color);
     margin-bottom: 0;
+    transition: .3s;
+}
+
+#sb_instagram .sb_instagram_header,
+.sb_instagram_header,
+#sb_instagram #sbi_load {
+    display: none;
+}
+
+.instagram-title h3 a:hover {
+    color: var(--white-color);
 }
 
 .instagram-title h3 .light {
@@ -2583,10 +2606,10 @@ button.close:hover {
     color: var(--common-color);
 }
 
-#sb_instagram #sbi_load,
-#sb_instagram .sb_instagram_header,
-.sb_instagram_header {
-    display: none;
+.instagram-title h3 .icon {
+    position: relative;
+    top: -3px;
+    left: 4px;
 }
 
 .instagram-slider .slick-slide {
@@ -2634,6 +2657,10 @@ button.close:hover {
     text-decoration: underline !important;
 }
 
+.footer-other-link p span i {
+    color: var(--red-color);
+}
+
 .copy-right p {
     margin-bottom: 0;
 }
@@ -2660,6 +2687,7 @@ button.close:hover {
 
 .career-form .submit-btn {
     text-align: center;
+    display: block;
 }
 
 .career-sec {
@@ -2761,6 +2789,7 @@ button.close:hover {
 .entry-content a {
     transition: .3s;
     color: var(--primary-color);
+    word-break: break-word;
 }
 
 .privacy-content p a:hover .privacy-content a:hover,
@@ -2846,7 +2875,7 @@ button.close:hover {
 }
 
 .service-detail-content {
-    padding: 227px 60px 473px 0;
+    margin: 227px 60px 472px 0;
     position: relative;
     z-index: 7;
 }
@@ -3538,6 +3567,16 @@ a.prev.page-numbers {
     .container {
         max-width: 1400px;
     }
+    .sec-1920 {
+        width: 2560px;
+    }
+    .service-detail-img-wp,
+    .about-img-wp {
+        width: calc(100% + 620px);
+    }
+    .wpcf7 .wpcf7-spinner {
+        margin: 0 0 0 -20px;
+    }
 }
 
 @media screen and (max-width: 1599px) {
@@ -3549,9 +3588,88 @@ a.prev.page-numbers {
     }
 }
 
-@media screen and (max-width: 1499px) {}
+@media screen and (max-width: 1499px) {
+    .main-navigation li {
+        margin: 0 40px;
+    }
+    .gallery-slider .slick-list {
+        width: 100%;
+        left: 0;
+    }
+    .gallery-slider .prev-arrow {
+        left: 0;
+    }
+    .gallery-slider .next-arrow.slick-arrow {
+        right: 0;
+    }
+    .service-box .container-fluid {
+        padding: 0 30px;
+    }
+    .service-box-wp {
+        padding: 74px 25px 72px;
+    }
+    .wpcf7 .wpcf7-spinner {
+        margin: 0 0 0 40px;
+    }
+}
 
-@media screen and (max-width: 1199px) {}
+@media screen and (max-width: 1199px) {
+    .home .main-navigation li.site-logo {
+        margin: 0 30px 0 40px;
+    }
+    .main-navigation li {
+        margin: 0 20px;
+    }
+    .banner-content .h1-title {
+        font-size: 148px;
+        line-height: 179px;
+    }
+    .about-content {
+        padding: 204px 0 193px 0;
+    }
+    .service-link li {
+        margin: 0 6px;
+    }
+    .service-link li a {
+        padding: 0 30px;
+    }
+    .service-content {
+        padding: 0;
+    }
+    .review-slider-box {
+        padding: 0 100px;
+    }
+    .hiring-content {
+        padding: 0;
+    }
+    .contact-link li {
+        margin: 0 35px;
+    }
+    .footer-bottom-text {
+        display: block;
+        text-align: center;
+    }
+    .copy-right {
+        display: block;
+    }
+    .footer-bottom-link li:first-child a {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .main-navigation li.site-logo {
+        margin: 0 80px 0 91px;
+    }
+    .service-detail-content {
+        margin: 227px 0 473px 0;
+    }
+    .service-box-wp .h3-title {
+        word-break: break-word;
+    }
+    .wpcf7 .wpcf7-spinner {
+        margin: 0 0 0 90px;
+    }
+}
 
 @media screen and (max-width: 991px) {
     .for-des,
@@ -3579,28 +3697,58 @@ a.prev.page-numbers {
         margin-top: 50px;
     }
     .site-header {
+        background: var(--dark-color);
         height: 80px;
+        top: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+    }
+    .home .site-header {
+        top: 0;
     }
     .site-header .container {
         max-width: 100%;
-        padding: 0 30px;
+        height: 100%;
+        padding: 0;
     }
-    .site-branding {
-        position: fixed;
+    .site-header .container .row {
+        margin: 0;
+        height: 100%;
+    }
+    .site-header .col-12 {
+        height: 100%;
+        padding: 0;
+    }
+    .site-header .col-lg-12 {
+        display: block;
+        width: auto;
+        padding: 0;
+        height: 100%;
+        position: absolute;
         top: 0;
         left: 30px;
-        width: 145px;
-        height: 80px;
+        z-index: 2;
+    }
+    .site-header .col-lg-12 .site-branding {
+        display: flex;
+        width: 180px;
+        height: 100%;
+        align-items: center;
+    }
+    .main-navigation {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: left;
     }
     .menu-toggle {
-        position: fixed;
-        top: 25px;
+        position: absolute;
+        top: 50%;
         right: 30px;
+        transform: translate(0, -50%);
         border: none;
         outline: none !important;
         background: transparent;
         width: 40px;
-        height: 31px;
         padding: 0;
         z-index: 105;
     }
@@ -3632,8 +3780,8 @@ a.prev.page-numbers {
         position: relative;
         top: -13px;
     }
-    .header-mobile-menu {
-        position: fixed;
+    .header-menu {
+        position: absolute;
         top: 0;
         left: 100vw;
         width: 100vw;
@@ -3646,17 +3794,17 @@ a.prev.page-numbers {
         transition: .5s;
         z-index: 101;
     }
-    .toggled .header-mobile-menu {
+    .toggled .header-menu {
         left: 0;
         opacity: 1;
     }
-    .header-mobile-menu::-webkit-scrollbar {
+    .header-menu::-webkit-scrollbar {
         width: 3px;
     }
-    .header-mobile-menu::-webkit-scrollbar-thumb {
+    .header-menu::-webkit-scrollbar-thumb {
         background: var(--dark-color);
     }
-    .header-mobile-menu::-webkit-scrollbar-track {
+    .header-menu::-webkit-scrollbar-track {
         background: var(--white-color);
     }
     .main-navigation ul {
@@ -3668,7 +3816,7 @@ a.prev.page-numbers {
         margin-left: 0;
         font-size: 22px;
         line-height: 28px;
-        margin-bottom: 4.4vh;
+        margin: 0 0 4vh;
     }
     .main-navigation ul li:last-child {
         margin-bottom: 0;
@@ -3676,12 +3824,16 @@ a.prev.page-numbers {
     .main-navigation ul li a {
         font-size: 22px;
         line-height: 28px;
-        padding-top: 0;
-        padding-bottom: 9px;
+        padding: 0;
         color: var(--white-color);
     }
+    .main-navigation a,
+    .home .main-navigation a {
+        height: auto;
+        display: inline-block;
+    }
     .main-navigation ul li.menu-item-has-children>a:after {
-        top: 45%;
+        top: 50%;
         color: var(--white-color);
     }
     .main-navigation ul li.menu-item-has-children:hover>a:after {
@@ -3706,13 +3858,240 @@ a.prev.page-numbers {
     }
     .main-navigation ul ul li {
         border-bottom: none;
-        margin-bottom: 10px;
+        margin-bottom: 1vh;
     }
     .main-navigation ul ul li:last-child {
         margin-bottom: 0;
     }
     .main-navigation ul ul li a {
         padding: 0;
+        color: var(--white-color);
+    }
+    .main-navigation li.site-logo,
+    .main-navigation li.site-logo a::before {
+        display: none;
+    }
+    .home .main-navigation li.site-logo {
+        margin: 0;
+    }
+    .home .sticky_head .main-navigation li.site-logo a {
+        min-width: auto;
+    }
+    .banner-content .h1-title {
+        font-size: 108px;
+        line-height: 139px;
+    }
+    .main-banner {
+        padding: 200px 0 190px;
+        clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    }
+    .about-img-wp {
+        height: 400px;
+        left: 0;
+        width: 100%;
+        margin-bottom: 21px;
+    }
+    .about-content {
+        padding: 0;
+    }
+    p {
+        margin-bottom: 15px;
+    }
+    .h2-title {
+        margin-bottom: 12px;
+    }
+    .about-sec {
+        padding: 229px 0 224px;
+    }
+    .service-sec {
+        padding: 72px 0 215px;
+        clip-path: polygon(50% 0, 100% 150px, 100% 90%, 50% 100%, 0 90%, 0 150px);
+    }
+    .service-sec .h2-title {
+        margin-bottom: 26px;
+    }
+    .service-link {
+        margin-bottom: 36px;
+    }
+    .service-link ul {
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+        height: 85px;
+        overflow-y: hidden;
+    }
+    .service-img-wp {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 23px;
+    }
+    .service-content p {
+        height: auto;
+        overflow: visible;
+        -webkit-line-clamp: unset;
+        text-overflow: unset;
+        margin-bottom: 24px;
+    }
+    .service-list-wp .service-list {
+        margin-bottom: 35px;
+    }
+    .review-wp {
+        padding: 321px 0 0;
+    }
+    .review-sec .h2-title {
+        margin-bottom: 12px;
+    }
+    .review-slider-box {
+        padding: 0 20px;
+    }
+    .review-box ul {
+        margin-bottom: 11px;
+    }
+    .review-slider [data-simplebar=init] {
+        margin-bottom: 22px;
+    }
+    .gallery-sec {
+        padding: 127px 0 87px;
+    }
+    .gallery-img {
+        height: 400px;
+    }
+    .slick-arrow {
+        top: auto;
+        bottom: -122px;
+    }
+    .prev-arrow.slick-arrow {
+        left: 50%;
+        margin-left: -80px;
+    }
+    .next-arrow.slick-arrow {
+        right: 50%;
+        margin-right: -80px;
+    }
+    .gallery-slider .next-arrow.slick-arrow {
+        right: 50%;
+    }
+    .review-bottom {
+        padding: 0 0 155px;
+    }
+    .h1-title {
+        font-size: 55px;
+        line-height: 67px;
+    }
+    .hiring-content .h1-title {
+        margin-bottom: 21px;
+    }
+    .hiring-content p {
+        margin-bottom: 28px;
+    }
+    .hiring-sec {
+        padding: 287px 0 275px;
+    }
+    .gallery-slider .slick-arrow {
+        bottom: -135px;
+    }
+    .footer-logo {
+        margin-bottom: 30px;
+    }
+    .footer-text {
+        margin-bottom: 15px;
+    }
+    .footer-text p {
+        width: 100%;
+    }
+    .contact-link li {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 6px;
+    }
+    .contact-link li:last-child {
+        margin: 17px 0 0;
+    }
+    .contact-link {
+        margin-bottom: 40px;
+    }
+    .instagram-title {
+        padding: 27px 0 24px;
+    }
+    .footer-bottom-text {
+        padding-top: 32px;
+    }
+    .site-footer {
+        padding-bottom: 35px;
+    }
+    .contact-link li a {
+        flex-direction: column;
+    }
+    .contact-link li a .icon {
+        margin: 0;
+    }
+    .inner-banner {
+        padding: 185px 0 83px;
+        clip-path: polygon(0 0, 100% 0, 100% 65%, 50% 100%, 0 65%);
+    }
+    .service-detail-img-wp {
+        width: 100%;
+        height: 400px;
+        left: 0;
+        margin-bottom: 21px;
+    }
+    .service-detail-content {
+        margin: 0;
+    }
+    .service-box-wp {
+        height: auto;
+        margin-bottom: 30px;
+        padding: 40px 30px 30px;
+    }
+    .main-details {
+        padding: 240px 0 0;
+        margin-bottom: 24px;
+    }
+    .service-box-btn {
+        margin: 0;
+    }
+    .service-details-sec .gallery-sec {
+        padding: 81px 0 376px;
+    }
+    .service-details-sec .gallery-slider .prev-arrow {
+        left: 50%;
+    }
+    .service-box-wp .h3-title {
+        margin-bottom: 19px;
+    }
+    .d-img {
+        top: 150px;
+        left: 0;
+    }
+    .main-details .d-img {
+        top: 170px;
+    }
+    .contact-sec {
+        padding: 72px 0 276px;
+    }
+    .contact-contet {
+        text-align: center;
+    }
+    .contact-contet p {
+        width: 100%;
+        margin-bottom: 14px;
+    }
+    .contact-contet .h2-title {
+        margin-bottom: 12px;
+    }
+    .contact-sec .submit-btn {
+        text-align: center;
+        display: block;
+    }
+    .contact-sec .wpcf7 .wpcf7-spinner {
+        margin: 0 0 0 170px;
+        transform: translate(-50%, -50%);
+    }
+    .contact-sec .contact-link {
+        margin-bottom: 30px;
+    }
+    .service-box {
+        margin: 0;
     }
 }
 
@@ -3728,6 +4107,34 @@ a.prev.page-numbers {
         max-width: unset;
         width: calc(100vw - 60px);
     }
+    .banner-content .h1-title {
+        font-size: 78px;
+        line-height: 99px;
+    }
+    .banner-btn .sec-btn+.sec-btn {
+        margin: 25px 0 0;
+    }
+    .review-slider .slick-list {
+        padding: 0 !important;
+        overflow: hidden;
+    }
+    .review-slider-box {
+        padding: 0;
+    }
+    .review-slider .slick-list {
+        padding: 0 !important;
+        overflow: hidden;
+    }
+    .review-slider-box {
+        padding: 0;
+    }
+    .service-details-sec .gallery-img {
+        height: 350px;
+    }
+    .estimate-popup .wpcf7 .wpcf7-spinner {
+        left: auto;
+        right: 0;
+    }
 }
 
 @media screen and (max-width: 575px) {
@@ -3741,6 +4148,8 @@ a.prev.page-numbers {
     .container,
     .container-fluid {
         padding: 0 30px;
+        width: 100vw;
+        max-width: 100%;
     }
     .privacy-content ol,
     .privacy-content ul,
@@ -3760,22 +4169,96 @@ a.prev.page-numbers {
     .page-numbers li {
         margin-bottom: 10px;
     }
+    .banner-btn .sec-btn {
+        display: flex;
+        margin: auto;
+    }
+    .banner-btn .sec-btn+.sec-btn {
+        margin: 20px auto 0;
+    }
+    .main-banner {
+        padding: 178px 0 165px;
+    }
+    .about-sec {
+        padding: 210px 0 204px;
+    }
+    .service-detail-img-wp,
+    .service-details-sec .gallery-img,
+    .gallery-img,
+    .service-img-wp,
+    .about-img-wp {
+        height: 300px;
+    }
+    .service-sec {
+        padding: 52px 0 130px;
+    }
+    .review-wp {
+        padding: 301px 0 0;
+    }
+    .hiring-sec {
+        padding: 268px 0 256px;
+    }
+    .h2-title {
+        font-size: 36px;
+        line-height: 43px;
+    }
+    .h3-title {
+        font-size: 28px;
+        line-height: 34px;
+    }
+    .review-slider [data-simplebar=init] {
+        height: 290px;
+    }
+    .instagram-slider .slick-list {
+        left: -20px;
+    }
+    .inner-banner {
+        padding: 150px 0 80px;
+    }
+    .main-details {
+        padding: 220px 0 0;
+    }
+    .service-details-sec .gallery-sec {
+        padding: 60px 0 356px;
+    }
+    .career-sec {
+        padding: 52px 0 255px;
+    }
+    .contact-sec {
+        padding: 51px 0 255px;
+    }
+    .inner-page-text {
+        padding: 50px 0 225px;
+    }
+    .error-404 {
+        padding: 53px 0 255px;
+    }
+    .estimate-popup .submit-btn .sec-btn {
+        width: 100%;
+    }
+    .estimate-popup .wpcf7 .wpcf7-spinner {
+        right: 10px;
+        z-index: 2;
+    }
+    .popup-title .h3-title {
+        font-size: 22px;
+        line-height: 32px;
+    }
 }
 
 @media screen and (max-width: 400px) {
     .container,
-    .container-fluid,
-    .site-header .container {
+    .container-fluid {
         padding: 0 15px;
+    }
+    .site-header .col-lg-12 {
+        left: 15px;
     }
     .modal-dialog {
         width: calc(100vw - 30px);
     }
     .common-popup-text {
         padding: 20px 15px;
-    }
-    .site-branding {
-        left: 15px;
     }
     .menu-toggle {
         right: 15px;
@@ -3788,9 +4271,10 @@ a.prev.page-numbers {
     }
     .form-input.wpcf7-textarea {
         padding: 15px;
+        height: 120px;
     }
     .form-element i {
-        right: 10px;
+        right: 15px;
     }
     .popup-title {
         padding: 10px 65px 10px 15px;
@@ -3798,6 +4282,49 @@ a.prev.page-numbers {
     .common-popup-text {
         padding: 20px 15px !important;
         max-height: 75vh;
+    }
+    .banner-content .h1-title {
+        font-size: 58px;
+        line-height: 79px;
+    }
+    .service-detail-img-wp,
+    .service-details-sec .gallery-img,
+    .gallery-img,
+    .service-img-wp,
+    .about-img-wp {
+        height: 280px;
+    }
+    .h1-title {
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .h2-title {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    .footer-bottom-link li {
+        display: block;
+    }
+    .footer-bottom-link li a {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .sec-btn {
+        width: 100%;
+    }
+    .service-box-wp {
+        padding: 30px 15px 24px;
+    }
+    .service-box .container-fluid {
+        padding: 0 15px;
+    }
+    .career-form .wpcf7 .wpcf7-spinner {
+        margin: 45px 0 0;
+        transform: translate(-50%, -50%);
+    }
+    .contact-sec .wpcf7 .wpcf7-spinner {
+        margin: 50px 0 0;
     }
 }
 

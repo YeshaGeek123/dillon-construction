@@ -11,7 +11,7 @@
  */
 
 ?>
-<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer sec-1920">
 	<div class="top-footer-box">
 		<div class="container">
 			<div class="row">
@@ -63,13 +63,14 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="instagram-title text-center">
-						<h3><span class="light">Follow Us on Instagram</span>@LoremIpsum</h3>
+						<h3><span class="light">Follow Us on Instagram</span>
+						<a href="<?php the_field('instagram_link','options'); ?>" target="_blank" title="@<?php the_field('instagram_id','options'); ?>"><span class="icon"><img width="24" height="28" src="<?php echo home_url(); ?>/wp-content/uploads/2022/07/@.svg" alt="@ icon"></span> <?php the_field('instagram_id','options'); ?></a></h3>
 					</div>
 				</div>
 			</div>
 			<div class="row instagram-slider">
 				<div class="col-lg-12">
-					<?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+					<?php echo do_shortcode('[instagram-feed feed=1 showfollow=false]'); ?>
 				</div>
 			</div>
 			<div class="row align-items-center">
@@ -102,7 +103,7 @@
 		<div class="modal-content">
 			<div class="popup-title">
 				<h3 class="h3-title">Request an Quote</h3>
-				<button type="button" class="close close-popup" data-dismiss="modal"></button>
+				<button type="button" class="close close-popup" data-dismiss="modal">x</button>
 			</div>
 			<div class="common-popup-overflow">
 				<div class="common-popup-text" data-simplebar>

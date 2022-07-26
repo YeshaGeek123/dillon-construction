@@ -11,12 +11,12 @@ get_header();
 ?>
 
 <!-- Start of Inner Banner -->
-<section class="inner-banner contact-banner bg-img" style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2022/07/contact-back-img.jpg');">
+<section class="inner-banner contact-banner bg-img sec-1920" style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2022/07/contact-back-img.jpg');">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="inner-banner-content text-center white-text">
-					<h1 class="h1-title">oops! that page can't be found.</h1>
+					<h1 class="h1-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.1s">oops! that page can't be found.</h1>
 				</div>
 			</div>
 		</div>
